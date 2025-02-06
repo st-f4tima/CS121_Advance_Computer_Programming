@@ -1,15 +1,14 @@
 #to be solve....
+relationship_status = ('Happiness', 'Euphoria', 'Admiration', 'Romance', 'Trust', 'Support')
 
-meanings = ['Happiness', 'Euphoria', 'Admiration', 'Romance', 'Trust', 'Support']
-shared_letters = []
+first_name = set(input('Enter first name: ').replace(" ", "").lower())
+second_name = set(input('Enter second name: ').replace(" ", "").lower())
 
-first_name = list(input('Enter first name: ').replace(" ", "").lower())
-second_name = list(input('Enter second name: ').replace(" ", "").lower())
+unique_letters = first_name.symmetric_difference(second_name)
+num_shared = len(unique_letters)
+index = (num_shared - 1) - 6
 
-for char in first_name:
-    if char in second_name:
-        shared_letters.append(char)
-        second_name.remove(char)
+print(f'Results: {num_shared} - Meaning: {relationship_status[index]}')
 
-num_shared = len(shared_letters)
-print(f'Results: {num_shared} - Meaning: {meanings[num_shared]}')
+
+
